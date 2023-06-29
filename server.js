@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
 //           res.status(404).send(`no se encontraron productos`); }    
 //   })
 
-  app.get("/id/:id",(req,res)=>{
+  app.get("/:id",(req,res)=>{
     let idFrutaABuscar=parseInt(req.params.id); 
     function itemIgual(item){return item.id===idFrutaABuscar;} //funcion accesoria para callback
     if(typeof(idFrutaABuscar)==='number'){
@@ -63,7 +63,7 @@ app.get("/", (req, res) => {
 
 //utilizo loop while (condicion) para borrar mas de un elemento con el mismo ID 
 
-app.delete("/borrar/:id",(req,res)=>{
+app.delete("/:id",(req,res)=>{
   let arrayResultado=[];
   let idFrutaABorrar=parseInt(req.params.id)
   if(typeof(idFrutaABorrar==='number')){
@@ -83,7 +83,7 @@ app.delete("/borrar/:id",(req,res)=>{
 // luego modificarlo de acuerdo a los datos enviados en el cuerpo del mensaje.
 // Recuerda retornar un mensaje de error si no encuentra el producto.
 
-app.put("/modificar/:id",(req,res)=>{
+app.put("/:id",(req,res)=>{
   let arrayResultadoPut=[];
   let arrayResultadoAgregar=[];
   let idFrutaAModificar=parseInt(req.params.id); 
