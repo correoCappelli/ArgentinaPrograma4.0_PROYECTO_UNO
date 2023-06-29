@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
     if(typeof(idFrutaABuscar)==='number'){
         resultado=BD.find(itemIgual);
         if(resultado!=undefined){
-          return res.status(201).json(resultado)}else{
+          return res.status(200).json(resultado)}else{
             res.status(404).send(`no se encontraron productos`);}}
         })
 
@@ -74,7 +74,7 @@ app.delete("/:id",(req,res)=>{
           }}
           // manejo de errores y resultados
    arrayResultado.length>0?
-            res.status(201).send(`Se borrarron ${arrayResultado.length} productos con ID ${idFrutaABorrar} `)
+            res.status(200).send(`Se borrarron ${arrayResultado.length} productos con ID ${idFrutaABorrar} `)
           : res.status(404).send(`no se encontraron`);  
         })
 
@@ -103,7 +103,7 @@ app.put("/:id",(req,res)=>{
       }
         // manejo de errores y resultados
         if(arrayResultadoPut.length>0){
-          res.status(201).send(`Se modificaron ${arrayResultadoPut.length} productos con ID ${idFrutaAModificar}`);      
+          res.status(200).send(`Se modificaron ${arrayResultadoPut.length} productos con ID ${idFrutaAModificar}`);      
         } else if (arrayResultadoAgregar.length>0){
           res.status(201).send(`Se agregaron ${arrayResultadoAgregar.length} productos con ID ${idFrutaAModificar}`);}
           else{      
